@@ -1,1 +1,23 @@
+#Préparation de l'espace de travail
+library(tidyverse)
+library(readr)
+library(tsibble)
+library(forecast)
+library(vars)
+library(tseries)
 
+library(ggplot2)
+library(ggfortify)
+
+#Importation des données 
+serie1<-read_csv("Données Taux de change")
+serie2<-read_csv("Données Exportations")
+
+#Mise en page des données
+serie1_ts <- data1 %>%
+  mutate(Date = as.Date(Date)) %>%
+  as_tsibble(index = Date)
+  
+serie2_ts <- data2 %>%
+  mutate(Date = as.Date(Date)) %>%
+  as_tsibble(index = Date)
