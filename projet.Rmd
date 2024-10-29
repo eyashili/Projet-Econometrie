@@ -21,3 +21,8 @@ serie1_ts <- data1 %>%
 serie2_ts <- data2 %>%
   mutate(Date = as.Date(Date)) %>%
   as_tsibble(index = Date)
+
+# Visualiser les séries temporelles
+ggplot(serie1_ts, aes(x = Date, y = Value)) +
+  geom_line() +
+  labs(title = "Série temporelle de data1", x = "Date", y = "Valeur")
